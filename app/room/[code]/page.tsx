@@ -3,7 +3,8 @@ import { Suspense } from "react"
 import { RoomCall } from "@/components/room-call"
 
 async function getRoom(code: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/rooms/${code}`, { cache: "no-store" })
+  const base = "https://p2p-video-ermq.onrender.com"
+  const res = await fetch(`${base}/api/rooms/${code}`, { cache: "no-store" })
   if (!res.ok) return null
   return res.json()
 }

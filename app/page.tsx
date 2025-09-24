@@ -18,7 +18,8 @@ export default function HomePage() {
 
 async function createRoom() {
   "use server"
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/rooms`, {
+  const base = "https://p2p-video-ermq.onrender.com"
+  const res = await fetch(`${base}/api/rooms`, {
     method: "POST",
     cache: "no-store",
   })

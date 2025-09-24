@@ -5,10 +5,7 @@ declare global {
   var __mongoClient: MongoClient | undefined
 }
 
-const uri = process.env.MONGODB_URI
-if (!uri) {
-  console.warn("[v0] Missing MONGODB_URI. Set it in Project Settings > Environment Variables.")
-}
+const uri = "mongodb+srv://nextcrudtodo:varunsingh21@cluster09.8ytep.mongodb.net/?retryWrites=true&w=majority&appName=Cluster09"
 
 let client: MongoClient | undefined = global.__mongoClient
 
