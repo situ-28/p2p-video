@@ -27,19 +27,17 @@ async function createRoom() {
   redirect(`/room/${code}`)
 }
 
+async function join(formData: FormData) {
+  "use server"
+  const code = (formData.get("code") as string)?.trim()
+  if (code) {
+    redirect(`/room/${code.toUpperCase()}`)
+  }
+}
+
 function CreateOrJoin() {
   return (
-    <form
-      className="grid gap-4"
-      action={async (formData) => {
-        const code = (formData.get("code") as string)?.trim()
-        if (code) {
-          redirect(`/room/${code.toUpperCase()}`)
-        } else {
-          ;("use server")
-        }
-      }}
-    >
+    <form className="grid gap-4" action={join}>
       <div className="grid gap-2">
         <label htmlFor="code" className="text-sm">
           Room code
